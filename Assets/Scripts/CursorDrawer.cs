@@ -7,6 +7,10 @@ public class CursorDrawer : MonoBehaviour
     [Header("Prefab Settings")]
     public GameObject linePrefab;
 
+    [Header("Drawing Settings")]
+    [Tooltip("Batas maksimal total panjang garis yang bisa digambar.")]
+    public float maxLineLength = 5f; 
+
     private GameObject currentLine;
     private LineRenderer lineRenderer;
     private EdgeCollider2D edgeCollider;
@@ -14,6 +18,9 @@ public class CursorDrawer : MonoBehaviour
     private Camera mainCamera;
 
     private List<Vector2> fingerPositions = new List<Vector2>();
+    
+    // Variabel baru untuk melacak panjang garis yang sedang dibuat
+    private float currentLineLength = 0f; 
 
     void Start()
     {
@@ -33,11 +40,24 @@ public class CursorDrawer : MonoBehaviour
         {
             Vector2 mouseWorldPos = mainCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
 
-            if (fingerPositions.Count == 0 || Vector2.Distance(mouseWorldPos, fingerPositions[fingerPositions.Count - 1]) > 0.1f)
+            if (fingerPositions.Count > 0)
             {
-                if (currentLine != null)
+                // Hitung jarak antara posisi mouse saat ini dan titik garis terakhir
+                float distanceToLastPoint = Vector2.Distance(mouseWorldPos, fingerPositions[fingerPositions.Count - 1]);
+
+                // Pastikan mouse sudah bergerak cukup jauh dari titik terakhir
+                if (distanceToLastPoint > 0.1f)
                 {
-                    UpdateLine(mouseWorldPos);
+                    // Cek apakah dengan menambahkan titik ini, garis akan melebihi batas maksimal
+                    if (currentLineLength + distanceToLastPoint <= maxLineLength)
+                    {
+                        currentLineLength += distanceToLastPoint; // Tambahkan jarak ke total panjang
+
+                        if (currentLine != null)
+                        {
+                            UpdateLine(mouseWorldPos);
+                        }
+                    }
                 }
             }
         }
@@ -70,15 +90,13 @@ public class CursorDrawer : MonoBehaviour
             lineRb.linearVelocity = Vector2.zero;
         }
 
-        // --- PERBAIKAN DI SINI ---
-        // Memberikan ketebalan fisik bantalan agar tidak tembus dan terdeteksi Ground Check
         if (edgeCollider != null)
         {
-            edgeCollider.edgeRadius = 0.05f; // Naikkan ke 0.1f jika deteksi kaki masih kurang peka
+            edgeCollider.edgeRadius = 0.05f; 
         }
-        // -------------------------
 
         fingerPositions.Clear();
+        currentLineLength = 0f; // Reset panjang garis setiap kali mulai menggambar baru
 
         Vector2 mouseWorldPos = mainCamera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         fingerPositions.Add(mouseWorldPos);

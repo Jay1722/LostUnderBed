@@ -6,7 +6,7 @@ public class EnemyPatrol : MonoBehaviour
     [Header("Patrol Settings")]
     public Transform[] waypoints;
     public float speed = 3f;
-    public float waitTime = 2f;
+    public float waitTime = 1f;
 
     [Header("Chase Settings")]
     public float chaseSpeed = 4f;

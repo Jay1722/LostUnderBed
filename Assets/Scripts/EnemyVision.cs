@@ -10,16 +10,28 @@ public class EnemyVision : MonoBehaviour
     private PolygonCollider2D visionCollider;
     private MeshFilter meshFilter;
     private Mesh mesh;
+    
+    // Siapkan dua "wadah" untuk tipe musuh yang berbeda
     private EnemyPatrol patrolScript;
+    private FlyingEnemy flyingScript;
 
     void Start()
     {
+        // 1. Coba cari script musuh darat (EnemyPatrol)
         patrolScript = GetComponentInParent<EnemyPatrol>();
         if (patrolScript == null)
         {
             patrolScript = GetComponent<EnemyPatrol>();
         }
 
+        // 2. Coba cari script musuh terbang (FlyingEnemy)
+        flyingScript = GetComponentInParent<FlyingEnemy>();
+        if (flyingScript == null)
+        {
+            flyingScript = GetComponent<FlyingEnemy>();
+        }
+
+        // Setup Visual (Mesh)
         visionCollider = GetComponent<PolygonCollider2D>();
         meshFilter = GetComponent<MeshFilter>();
         mesh = new Mesh();
@@ -52,6 +64,7 @@ public class EnemyVision : MonoBehaviour
             mesh.RecalculateNormals();
         }
     }
+
     void OnTriggerStay2D(Collider2D other)
     {
         // 1. CEK PLAYER
@@ -65,7 +78,11 @@ public class EnemyVision : MonoBehaviour
                 if (player.isHiding)
                 {
                     Debug.Log("Player is hiding! Enemy stops chasing.");
+                    
+                    // Panggil fungsi berhenti pada script mana pun yang ditemukan (tidak null)
                     if (patrolScript != null) patrolScript.StopChasing();
+                    if (flyingScript != null) flyingScript.StopChasing();
+                    
                     return; // KELUAR dari fungsi, musuh tidak jadi mengejar
                 }
 
@@ -75,10 +92,11 @@ public class EnemyVision : MonoBehaviour
 
                 if (isPlayerMoving)
                 {
-                    patrolScript.ChaseTarget(player.gameObject);
+                    // Panggil fungsi kejar pada script mana pun yang ditemukan (tidak null)
+                    if (patrolScript != null) patrolScript.ChaseTarget(player.gameObject);
+                    if (flyingScript != null) flyingScript.ChaseTarget(player.gameObject);
                 }
             }
         }
     }
-
 }

@@ -18,10 +18,16 @@ public class PlayerMovement : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     private CapsuleCollider2D playerCollider;
 
+    [Header("Ceiling Check Settings")]
+    public Transform ceilingCheck; // Titik di atas kepala karakter saat jongkok
+    public float ceilingCheckRadius = 0.2f;
+    public LayerMask obstacleLayer; // Layer untuk rintangan/atap
+
     private Vector2 originalColliderSize;
-    private Vector2 originalColliderOffset; // KUNCI UTAMA: Wajib dicatat kembali!
-    private Vector3 originalSpriteScale;    // KUNCI UTAMA: Mencatat skala asli milik Sprite Renderer, bukan parent
+    private Vector2 originalColliderOffset; 
+    private Vector3 originalSpriteScale;    
     private bool isCrouching = false;
+    private bool isCrouchButtonPressed = false; // Menyimpan status input tombol
 
     private Rigidbody2D rb;
     private Vector2 moveInput;
@@ -35,21 +41,18 @@ public class PlayerMovement : MonoBehaviour
         if (playerCollider != null)
         {
             originalColliderSize = playerCollider.size;
-            originalColliderOffset = playerCollider.offset; // Catat offset awal
+            originalColliderOffset = playerCollider.offset; 
         }
 
         if (spriteRenderer != null)
         {
-            originalSpriteScale = spriteRenderer.transform.localScale; // Catat skala asli sprite
+            originalSpriteScale = spriteRenderer.transform.localScale; 
         }
     }
 
     void FixedUpdate()
     {
-        float currentSpeed = isCrouching ? moveSpeed * crouchSpeedMultiplier : moveSpeed;
-
-        rb.linearVelocity = new Vector2(moveInput.x * currentSpeed, rb.linearVelocity.y);
-
+        // 1. Cek Ground
         if (groundCheck != null)
         {
             isGround = Physics2D.OverlapBox(groundCheck.position, groundCheckSize, 0f, groundLayer);
@@ -61,6 +64,13 @@ public class PlayerMovement : MonoBehaviour
             Debug.DrawLine(new Vector2(groundCheck.position.x + halfSize.x, groundCheck.position.y - halfSize.y), new Vector2(groundCheck.position.x - halfSize.x, groundCheck.position.y - halfSize.y), debugColor);
             Debug.DrawLine(new Vector2(groundCheck.position.x - halfSize.x, groundCheck.position.y - halfSize.y), new Vector2(groundCheck.position.x - halfSize.x, groundCheck.position.y + halfSize.y), debugColor);
         }
+
+        // 2. Cek status Crouch dan Ceiling
+        HandleCrouchState();
+
+        // 3. Movement
+        float currentSpeed = isCrouching ? moveSpeed * crouchSpeedMultiplier : moveSpeed;
+        rb.linearVelocity = new Vector2(moveInput.x * currentSpeed, rb.linearVelocity.y);
 
         Debug.Log("Ground: " + isGround + " | Crouch: " + isCrouching);
     }
@@ -80,38 +90,78 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnCrouch(InputAction.CallbackContext context)
     {
-        if (playerCollider == null || spriteRenderer == null) return;
-
+        // Hanya mencatat apakah tombol sedang ditekan atau dilepas
         if (context.started)
         {
-            Debug.Log("Jongkok");
-            isCrouching = true;
+            isCrouchButtonPressed = true;
+        }
+        else if (context.canceled)
+        {
+            isCrouchButtonPressed = false;
+        }
+    }
 
+    private void HandleCrouchState()
+    {
+        if (playerCollider == null || spriteRenderer == null) return;
+
+        bool canStand = true;
+
+        // Mengecek apakah ada objek di atas karakter menggunakan OverlapCircle
+        if (ceilingCheck != null)
+        {
+            canStand = !Physics2D.OverlapCircle(ceilingCheck.position, ceilingCheckRadius, obstacleLayer);
+        }
+
+        // Jika tombol ditekan dan belum jongkok -> Mulai jongkok
+        if (isCrouchButtonPressed && !isCrouching)
+        {
+            SetCrouch(true);
+        }
+        // Jika tombol DILEPAS, sedang jongkok, DAN area atas kosong -> Berdiri
+        else if (!isCrouchButtonPressed && isCrouching && canStand)
+        {
+            SetCrouch(false);
+        }
+        // Jika tombol dilepas, tapi area atas ADA rintangan, karakter akan tetap dalam state jongkok (isCrouching = true)
+    }
+
+    // Memisahkan logika visual & collider ke fungsi tersendiri
+    private void SetCrouch(bool state)
+    {
+        isCrouching = state;
+
+        if (isCrouching)
+        {
+            Debug.Log("Jongkok");
             float targetHeight = originalColliderSize.y * 0.5f;
             float heightDifference = originalColliderSize.y - targetHeight;
 
-            // 1. Ubah ukuran fisik kapsul & geser offset Y-nya ke bawah agar kaki mengunci lantai
             playerCollider.size = new Vector2(originalColliderSize.x, targetHeight);
             playerCollider.offset = new Vector2(originalColliderOffset.x, originalColliderOffset.y - (heightDifference / 2f));
 
-            // 2. Ubah visual sprite mengecil ke bawah
             spriteRenderer.transform.localScale = new Vector3(
                 originalSpriteScale.x,
                 originalSpriteScale.y * 0.5f,
                 originalSpriteScale.z
             );
         }
-        else if (context.canceled)
+        else
         {
             Debug.Log("Berdiri");
-            isCrouching = false;
-
-            // Kembalikan ukuran fisik ke semula
             playerCollider.size = originalColliderSize;
             playerCollider.offset = originalColliderOffset;
-
-            // Kembalikan visual ke ukuran semula yang akurat
             spriteRenderer.transform.localScale = originalSpriteScale;
+        }
+    }
+
+    // Menampilkan lingkaran visual di editor Unity untuk memudahkan pengaturan Ceiling Check
+    private void OnDrawGizmosSelected()
+    {
+        if (ceilingCheck != null)
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(ceilingCheck.position, ceilingCheckRadius);
         }
     }
 }

@@ -525,6 +525,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3860847640377328753, guid: ae0692d2acae927408347b7ed8a7e090, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 1129948935}
     - target: {fileID: 5368016120142739409, guid: ae0692d2acae927408347b7ed8a7e090, type: 3}
       propertyPath: m_Name
       value: Player
@@ -913,6 +917,11 @@ MonoBehaviour:
 --- !u!4 &1129948929 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1066347987341221903, guid: ae0692d2acae927408347b7ed8a7e090, type: 3}
+  m_PrefabInstance: {fileID: 532387065}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1129948935 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 8255556600342417984, guid: ae0692d2acae927408347b7ed8a7e090, type: 3}
   m_PrefabInstance: {fileID: 532387065}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1850294865
