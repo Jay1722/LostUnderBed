@@ -1,0 +1,330 @@
+fileFormatVersion: 2
+guid: af334bacf6fb70949b79a5f46317ae1b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8865522035301394643
+    second: MC JUMP_0
+  - first:
+      213: -5576065304142407156
+    second: MC JUMP_1
+  - first:
+      213: 4050483391783572258
+    second: MC JUMP_2
+  - first:
+      213: -7902177068603233139
+    second: MC JUMP_3
+  - first:
+      213: 3783351119746200977
+    second: MC JUMP_4
+  - first:
+      213: 2389393396783358900
+    second: MC JUMP_5
+  - first:
+      213: -8204168503753380592
+    second: MC JUMP_6
+  - first:
+      213: 1480778673738465580
+    second: MC JUMP_7
+  - first:
+      213: 6581791551251239315
+    second: MC JUMP_8
+  - first:
+      213: -1265306231458025509
+    second: MC JUMP_9
+  - first:
+      213: 7285948319892033337
+    second: MC JUMP_10
+  - first:
+      213: 3825815062732098062
+    second: MC JUMP_11
+  - first:
+      213: 7275563413074787390
+    second: MC JUMP_12
+  - first:
+      213: -1018982903629296554
+    second: MC JUMP_13
+  - first:
+      213: 809373761728423634
+    second: MC JUMP_14
+  - first:
+      213: -1316195959268077502
+    second: MC JUMP_15
+  - first:
+      213: -5837744530554327353
+    second: MC JUMP_16
+  - first:
+      213: 4751288342749305022
+    second: MC JUMP_17
+  - first:
+      213: 8153074310209186932
+    second: MC JUMP_18
+  - first:
+      213: -7059325011679434937
+    second: MC JUMP_19
+  - first:
+      213: 7772266358811857202
+    second: MC JUMP_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 240
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MC JUMP_4
+      rect:
+        serializedVersion: 2
+        x: 885
+        y: 192
+        width: 280
+        height: 504
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8caaa9d2d3d55290800000000000000
+      internalID: -7902177068603233139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MC JUMP_5
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 80
+        width: 312
+        height: 504
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdf2bd5bfaab07ee0800000000000000
+      internalID: -1265306231458025509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MC JUMP_1
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 0
+        width: 216
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93fc403f463ec1560800000000000000
+      internalID: 7285948319892033337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MC JUMP_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 296
+        height: 416
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3cb629606ef7f460800000000000000
+      internalID: 7275563413074787390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MC JUMP_3
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 3
+        width: 280
+        height: 464
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65ccafca278dbd1f0800000000000000
+      internalID: -1018982903629296554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MC JUMP_6
+      rect:
+        serializedVersion: 2
+        x: 1594
+        y: 0
+        width: 296
+        height: 416
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2409501afbeebbde0800000000000000
+      internalID: -1316195959268077502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 2c85342fedaec6640ba5fa9243388549
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      MC JUMP_0: 8865522035301394643
+      MC JUMP_1: 7285948319892033337
+      MC JUMP_11: 3825815062732098062
+      MC JUMP_14: 809373761728423634
+      MC JUMP_16: -5837744530554327353
+      MC JUMP_17: 4751288342749305022
+      MC JUMP_18: 8153074310209186932
+      MC JUMP_19: -7059325011679434937
+      MC JUMP_2: 7275563413074787390
+      MC JUMP_20: 7772266358811857202
+      MC JUMP_3: -1018982903629296554
+      MC JUMP_4: -7902177068603233139
+      MC JUMP_5: -1265306231458025509
+      MC JUMP_6: -1316195959268077502
+      MC JUMP_7: 1480778673738465580
+      MC JUMP_8: 6581791551251239315
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

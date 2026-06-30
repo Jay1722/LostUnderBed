@@ -19,24 +19,26 @@ public class PlayerMovement : MonoBehaviour
     private CapsuleCollider2D playerCollider;
 
     [Header("Ceiling Check Settings")]
-    public Transform ceilingCheck; // Titik di atas kepala karakter saat jongkok
+    public Transform ceilingCheck; 
     public float ceilingCheckRadius = 0.2f;
-    public LayerMask obstacleLayer; // Layer untuk rintangan/atap
+    public LayerMask obstacleLayer; 
 
     private Vector2 originalColliderSize;
     private Vector2 originalColliderOffset; 
     private Vector3 originalSpriteScale;    
     private bool isCrouching = false;
-    private bool isCrouchButtonPressed = false; // Menyimpan status input tombol
+    private bool isCrouchButtonPressed = false; 
 
     private Rigidbody2D rb;
     private Vector2 moveInput;
     private bool isGround;
+    private Animator anim; // Variabel Animator
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         playerCollider = GetComponent<CapsuleCollider2D>();
+        anim = GetComponent<Animator>(); // Menghubungkan Animator
 
         if (playerCollider != null)
         {
@@ -72,7 +74,21 @@ public class PlayerMovement : MonoBehaviour
         float currentSpeed = isCrouching ? moveSpeed * crouchSpeedMultiplier : moveSpeed;
         rb.linearVelocity = new Vector2(moveInput.x * currentSpeed, rb.linearVelocity.y);
 
-        Debug.Log("Ground: " + isGround + " | Crouch: " + isCrouching);
+        // 4. Membalikkan Badan (Flip)
+        if (moveInput.x > 0.01f) spriteRenderer.flipX = false;
+        else if (moveInput.x < -0.01f) spriteRenderer.flipX = true;
+
+        // 5. Update Semua Animasi
+        if (anim != null)
+        {
+            bool isMoving = Mathf.Abs(moveInput.x) > 0.01f;
+            anim.SetBool("isWalking", isMoving);
+            
+            // Logika baru: Jika isGround false (di udara), isJumping jadi true!
+            anim.SetBool("isJumping", !isGround); 
+
+            anim.SetFloat("velocityY", rb.linearVelocity.y);
+        }
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -90,7 +106,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnCrouch(InputAction.CallbackContext context)
     {
-        // Hanya mencatat apakah tombol sedang ditekan atau dilepas
         if (context.started)
         {
             isCrouchButtonPressed = true;
@@ -107,55 +122,49 @@ public class PlayerMovement : MonoBehaviour
 
         bool canStand = true;
 
-        // Mengecek apakah ada objek di atas karakter menggunakan OverlapCircle
         if (ceilingCheck != null)
         {
             canStand = !Physics2D.OverlapCircle(ceilingCheck.position, ceilingCheckRadius, obstacleLayer);
         }
 
-        // Jika tombol ditekan dan belum jongkok -> Mulai jongkok
         if (isCrouchButtonPressed && !isCrouching)
         {
             SetCrouch(true);
         }
-        // Jika tombol DILEPAS, sedang jongkok, DAN area atas kosong -> Berdiri
         else if (!isCrouchButtonPressed && isCrouching && canStand)
         {
             SetCrouch(false);
         }
-        // Jika tombol dilepas, tapi area atas ADA rintangan, karakter akan tetap dalam state jongkok (isCrouching = true)
     }
 
-    // Memisahkan logika visual & collider ke fungsi tersendiri
     private void SetCrouch(bool state)
     {
         isCrouching = state;
 
+        // Tambahkan baris ini untuk mengaktifkan animasi di Animator
+        if (anim != null)
+        {
+            anim.SetBool("isCrouching", isCrouching);
+        }
+
         if (isCrouching)
         {
-            Debug.Log("Jongkok");
+            // ... (Logika perubahan ukuran collider tetap sama seperti sebelumnya) ...
             float targetHeight = originalColliderSize.y * 0.5f;
             float heightDifference = originalColliderSize.y - targetHeight;
-
             playerCollider.size = new Vector2(originalColliderSize.x, targetHeight);
             playerCollider.offset = new Vector2(originalColliderOffset.x, originalColliderOffset.y - (heightDifference / 2f));
-
-            spriteRenderer.transform.localScale = new Vector3(
-                originalSpriteScale.x,
-                originalSpriteScale.y * 0.5f,
-                originalSpriteScale.z
-            );
+            spriteRenderer.transform.localScale = new Vector3(originalSpriteScale.x, originalSpriteScale.y * 0.5f, originalSpriteScale.z);
         }
         else
         {
-            Debug.Log("Berdiri");
+            // ... (Logika mengembalikan ukuran semula) ...
             playerCollider.size = originalColliderSize;
             playerCollider.offset = originalColliderOffset;
             spriteRenderer.transform.localScale = originalSpriteScale;
         }
     }
 
-    // Menampilkan lingkaran visual di editor Unity untuk memudahkan pengaturan Ceiling Check
     private void OnDrawGizmosSelected()
     {
         if (ceilingCheck != null)

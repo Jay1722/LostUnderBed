@@ -1,0 +1,274 @@
+fileFormatVersion: 2
+guid: a9ee86641595ac943b4e2245501d3ad7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -193436242376009290
+    second: MC SNEAK_0
+  - first:
+      213: 5440239181230122940
+    second: MC SNEAK_1
+  - first:
+      213: -6026568779067495830
+    second: MC SNEAK_2
+  - first:
+      213: 8383109331360639028
+    second: MC SNEAK_3
+  - first:
+      213: 8430606040355306225
+    second: MC SNEAK_4
+  - first:
+      213: 9187220887676522890
+    second: MC SNEAK_5
+  - first:
+      213: -1280024094185963264
+    second: MC SNEAK_6
+  - first:
+      213: -411069262981629344
+    second: MC SNEAK_7
+  - first:
+      213: -2916014517467859874
+    second: MC SNEAK_8
+  - first:
+      213: 5087123393326788333
+    second: MC SNEAK_9
+  - first:
+      213: -8691854602776704057
+    second: MC SNEAK_10
+  - first:
+      213: -8219297575832096264
+    second: MC SNEAK_11
+  - first:
+      213: 7205640160793012090
+    second: MC SNEAK_12
+  - first:
+      213: -3735233177624179968
+    second: MC SNEAK_13
+  - first:
+      213: 6196273769510512758
+    second: MC SNEAK_14
+  - first:
+      213: 1017758363882672122
+    second: MC SNEAK_15
+  - first:
+      213: -7635628285492156719
+    second: MC SNEAK_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 240
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MC SNEAK_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 0
+        width: 216
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b9dd7e23c6c05df0800000000000000
+      internalID: -193436242376009290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MC SNEAK_1
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 0
+        width: 272
+        height: 392
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb7226236bc9f7b40800000000000000
+      internalID: 5440239181230122940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MC SNEAK_3
+      rect:
+        serializedVersion: 2
+        x: 936
+        y: 0
+        width: 272
+        height: 392
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43863017589c65470800000000000000
+      internalID: 8383109331360639028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MC SNEAK_2
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 288
+        height: 384
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 001ca124ed07c3ee0800000000000000
+      internalID: -1280024094185963264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 0b1288c1d3a4b954dba918607573372d
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      MC SNEAK_0: -193436242376009290
+      MC SNEAK_1: 5440239181230122940
+      MC SNEAK_10: -8691854602776704057
+      MC SNEAK_11: -8219297575832096264
+      MC SNEAK_12: 7205640160793012090
+      MC SNEAK_13: -3735233177624179968
+      MC SNEAK_14: 6196273769510512758
+      MC SNEAK_15: 1017758363882672122
+      MC SNEAK_16: -7635628285492156719
+      MC SNEAK_2: -1280024094185963264
+      MC SNEAK_3: 8383109331360639028
+      MC SNEAK_4: 8430606040355306225
+      MC SNEAK_5: 9187220887676522890
+      MC SNEAK_7: -411069262981629344
+      MC SNEAK_8: -2916014517467859874
+      MC SNEAK_9: 5087123393326788333
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

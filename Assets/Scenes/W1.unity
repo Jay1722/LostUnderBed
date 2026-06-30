@@ -395,6 +395,11 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &305705986 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5368016120142739409, guid: ae0692d2acae927408347b7ed8a7e090, type: 3}
+  m_PrefabInstance: {fileID: 805316366}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &386782445
 GameObject:
   m_ObjectHideFlags: 0
@@ -608,7 +613,7 @@ Transform:
   m_GameObject: {fileID: 510371253}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.59, y: 5.3, z: -10}
+  m_LocalPosition: {x: -15.09, y: 3.22, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -977,7 +982,7 @@ Transform:
   m_GameObject: {fileID: 738700060}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.59, y: 5.3, z: -10}
+  m_LocalPosition: {x: -15.09, y: 3.22, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1092,13 +1097,13 @@ MonoBehaviour:
   loreTextUI: {fileID: 0}
   halaman1Text: 
   halaman2Text: 
-  textFadeDuration: 2
-  textReadTime: 4
+  textFadeDuration: 1
+  textReadTime: 2
   scaryBackground: {fileID: 0}
   warmBackground: {fileID: 0}
   globalLight: {fileID: 1638105539}
   warmLightColor: {r: 1, g: 0.8, b: 0.6, a: 1}
-  lightTransitionDuration: 3
+  lightTransitionDuration: 1
   nextSceneName: W2
   fadeBlackScreen: {fileID: 737181378}
 --- !u!61 &769279732
@@ -1176,11 +1181,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1066347987341221903, guid: ae0692d2acae927408347b7ed8a7e090, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.59
+      value: -15.09
       objectReference: {fileID: 0}
     - target: {fileID: 1066347987341221903, guid: ae0692d2acae927408347b7ed8a7e090, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.3
+      value: 3.22
       objectReference: {fileID: 0}
     - target: {fileID: 1066347987341221903, guid: ae0692d2acae927408347b7ed8a7e090, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1266,20 +1271,27 @@ PrefabInstance:
       propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 8255556600342417984, guid: ae0692d2acae927408347b7ed8a7e090, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ed58bb19527f5e540b2c56e1c87a559d, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 1066347987341221903, guid: ae0692d2acae927408347b7ed8a7e090, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1554939126}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5368016120142739409, guid: ae0692d2acae927408347b7ed8a7e090, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1849458045}
   m_SourcePrefab: {fileID: 100100000, guid: ae0692d2acae927408347b7ed8a7e090, type: 3}
 --- !u!114 &805316367 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3860847640377328753, guid: ae0692d2acae927408347b7ed8a7e090, type: 3}
   m_PrefabInstance: {fileID: 805316366}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 305705986}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7aac8565e031dca4e85dc8bf7f3860f4, type: 3}
@@ -2008,6 +2020,28 @@ SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 8255556600342417984, guid: ae0692d2acae927408347b7ed8a7e090, type: 3}
   m_PrefabInstance: {fileID: 805316366}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1849458045
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 305705986}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9350237e45564e14eb9980fa58f5b7a3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
